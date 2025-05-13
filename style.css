@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
         
 * {
@@ -440,7 +441,11 @@ nav {
         padding: 10px 15px;
         font-size: 14px;
     }
-    
+    #first-btn{
+         width: 100%;
+        padding: 10px 15px;
+        font-size: 14px;
+    }
     .contact-btn#contactBtn {
         width: 110px;
         padding: 6px 12px;
