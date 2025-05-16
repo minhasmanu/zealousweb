@@ -499,7 +499,7 @@ nav {
         }
 
         .about-text p {
-            font-size: 1.1rem;
+            font-size: 1rem;
             margin-bottom: 20px;
             line-height: 1.7;
         }
@@ -519,6 +519,7 @@ nav {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            
         }
 
         /* Individual circle positions - arranged more like the reference image */
@@ -528,6 +529,7 @@ nav {
             top: 40px;
             left: 50px;
             z-index: 3;
+            border: 2px solid #D32626;
            
         }
 
@@ -537,6 +539,7 @@ nav {
             top: 100px;
             right: 90px;
             z-index: 2;
+            
         }
 
         .circle-3 {
@@ -545,6 +548,7 @@ nav {
             bottom: 40px;
             right: 70px;
             z-index: 4;
+            border: 2px solid #D32626;
         }
 
         .circle-4 {
@@ -553,6 +557,7 @@ nav {
             bottom: 120px;
             left: 150px;
             z-index: 1;
+             
         }
 
         /* Animation class */
