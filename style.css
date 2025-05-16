@@ -456,4 +456,286 @@ nav {
         height: 35px;
     }
 }
+     
 
+
+
+        /* About Us Section Styles */
+        .about-section {
+            padding: 80px 0;
+            background-color: white;
+            overflow: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .about-container {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .about-image-cluster {
+            width: 50%;
+            position: relative;
+            height: 550px;
+        }
+
+        .about-text {
+            width: 45%;
+            padding: 20px;
+        }
+
+        .about-text h2 {
+            font-size: 2.5rem;
+            color: #192642;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+
+        /* Circle Images Styles */
+        .circle-image {
+            position: absolute;
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .circle-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Individual circle positions - arranged more like the reference image */
+        .circle-1 {
+            width: 220px;
+            height: 220px;
+            top: 40px;
+            left: 50px;
+            z-index: 3;
+        }
+
+        .circle-2 {
+            width: 140px;
+            height: 140px;
+            top: 100px;
+            right: 90px;
+            z-index: 2;
+        }
+
+        .circle-3 {
+            width: 180px;
+            height: 180px;
+            bottom: 40px;
+            right: 70px;
+            z-index: 4;
+        }
+
+        .circle-4 {
+            width: 120px;
+            height: 120px;
+            bottom: 120px;
+            left: 150px;
+            z-index: 1;
+        }
+
+        /* Animation class */
+        .circle-image.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Staggered animation delays */
+        .circle-1 {
+            transition-delay: 0.1s;
+        }
+        .circle-2 {
+            transition-delay: 0.3s;
+        }
+        .circle-3 {
+            transition-delay: 0.5s;
+        }
+        .circle-4 {
+            transition-delay: 0.7s;
+        }
+
+        /* Responsive Styles */
+        @media screen and (max-width: 992px) {
+            .about-container {
+                flex-direction: column;
+            }
+            
+            .about-image-cluster, .about-text {
+                width: 100%;
+            }
+            
+            .about-image-cluster {
+                height: 450px;
+                margin-bottom: 40px;
+                display: flex;
+                justify-content: center;
+                position: relative;
+            }
+            
+            /* Center the circular pattern on tablets */
+            .circle-1 {
+                width: 180px;
+                height: 180px;
+                top: 40px;
+                left: calc(50% - 180px);
+            }
+            
+            .circle-2 {
+                width: 120px;
+                height: 120px;
+                top: 40px;
+                right: calc(50% - 180px);
+            }
+            
+            .circle-3 {
+                width: 160px;
+                height: 160px;
+                bottom: 60px;
+                right: calc(50% - 160px);
+            }
+            
+            .circle-4 {
+                width: 100px;
+                height: 100px;
+                bottom: 100px;
+                left: calc(50% - 160px);
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .about-section {
+                padding: 50px 0;
+            }
+            
+            .about-image-cluster {
+                height: 420px;
+            }
+            
+            .about-text h2 {
+                font-size: 2rem;
+            }
+            
+            /* Adjust for smaller screens while maintaining pattern */
+            .circle-1 {
+                width: 160px;
+                height: 160px;
+                top: 50px;
+                left: calc(50% - 150px);
+            }
+            
+            .circle-2 {
+                width: 100px;
+                height: 100px;
+                top: 50px;
+                right: calc(50% - 150px);
+            }
+            
+            .circle-3 {
+                width: 140px;
+                height: 140px;
+                bottom: 70px;
+                right: calc(50% - 130px);
+            }
+            
+            .circle-4 {
+                width: 90px;
+                height: 90px;
+                bottom: 100px;
+                left: calc(50% - 130px);
+            }
+        }
+
+        @media screen and (max-width: 576px) {
+            .about-image-cluster {
+                height: 380px;
+            }
+            
+            .about-text h2 {
+                font-size: 1.8rem;
+            }
+            
+            /* Add more space between circles for mobile */
+            .circle-1 {
+                width: 130px;
+                height: 130px;
+                top: 40px;
+                left: calc(50% - 130px);
+            }
+            
+            .circle-2 {
+                width: 85px;
+                height: 85px;
+                top: 50px;
+                right: calc(50% - 130px);
+            }
+            
+            .circle-3 {
+                width: 110px;
+                height: 110px;
+                bottom: 80px;
+                right: calc(50% - 110px);
+            }
+            
+            .circle-4 {
+                width: 75px;
+                height: 75px;
+                bottom: 100px;
+                left: calc(50% - 110px);
+            }
+        }
+        
+        /* Extra small screens */
+        @media screen and (max-width: 400px) {
+            .about-image-cluster {
+                height: 340px;
+            }
+            
+            /* Increase spacing for very small screens */
+            .circle-1 {
+                width: 110px;
+                height: 110px;
+                top: 30px;
+                left: calc(50% - 110px);
+            }
+            
+            .circle-2 {
+                width: 75px;
+                height: 75px;
+                top: 40px;
+                right: calc(50% - 110px);
+            }
+            
+            .circle-3 {
+                width: 100px;
+                height: 100px;
+                bottom: 70px;
+                right: calc(50% - 90px);
+            }
+            
+            .circle-4 {
+                width: 65px;
+                height: 65px;
+                bottom: 90px;
+                left: calc(50% - 90px);
+            }
+        }
