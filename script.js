@@ -72,3 +72,43 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+ // Function to check if element is in viewport
+        function isInViewport(element) {
+            const rect = element.getBoundingClientRect();
+            return (
+                rect.top <= (window.innerHeight || document.documentElement.clientHeight) * 0.8 &&
+                rect.bottom >= 0
+            );
+        }
+
+        // Function to handle scroll animations
+        function handleScrollAnimations() {
+            const circleImages = document.querySelectorAll('.circle-image');
+            const aboutSection = document.getElementById('about');
+            
+            // Only run animation if about section is in viewport
+            if (isInViewport(aboutSection)) {
+                circleImages.forEach((circle, index) => {
+                    // Add a slight delay based on index for staggered animation
+                    setTimeout(() => {
+                        circle.classList.add('show');
+                    }, index * 150);
+                });
+                
+                // Remove scroll listener once animations are triggered
+                if (circleImages[0].classList.contains('show')) {
+                    window.removeEventListener('scroll', handleScrollAnimations);
+                }
+            }
+        }
+
+        // Initial check on load
+        document.addEventListener('DOMContentLoaded', function() {
+            handleScrollAnimations();
+            
+            // Add scroll event listener
+            window.addEventListener('scroll', handleScrollAnimations);
+            
+            // Also trigger on resize to handle position changes
+            window.addEventListener('resize', handleScrollAnimations);
+        });
