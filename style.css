@@ -583,7 +583,7 @@ nav {
         /* Responsive Styles */
         @media screen and (max-width: 992px) {
             .about-container {
-                flex-direction: column;
+                flex-direction: column-reverse; 
             }
             
             .about-image-cluster, .about-text {
