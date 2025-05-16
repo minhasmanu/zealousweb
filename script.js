@@ -112,3 +112,37 @@ document.addEventListener('DOMContentLoaded', () => {
             // Also trigger on resize to handle position changes
             window.addEventListener('resize', handleScrollAnimations);
         });
+        // Intersection Observer for scroll animations
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animate title on load
+            setTimeout(() => {
+                document.querySelector('.section-title').classList.add('active');
+            }, 300);
+
+            // Animate cards on scroll
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        setTimeout(() => {
+                            entry.target.classList.add('active');
+                        }, parseInt(entry.target.dataset.delay) || 0);
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            // Observe all service cards
+            document.querySelectorAll('.service-card').forEach(card => {
+                observer.observe(card);
+            });
+
+            // Initial animation for cards that are already visible
+            if (window.innerHeight > document.querySelector('.services-section').getBoundingClientRect().top) {
+                document.querySelectorAll('.service-card').forEach(card => {
+                    setTimeout(() => {
+                        card.classList.add('active');
+                    }, parseInt(card.dataset.delay) || 0);
+                });
+            }
+        });
