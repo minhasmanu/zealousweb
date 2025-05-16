@@ -146,3 +146,53 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
             }
         });
+           document.addEventListener('DOMContentLoaded', function() {
+            // Function to check if element is in viewport
+            function isInViewport(element) {
+                const rect = element.getBoundingClientRect();
+                return (
+                    rect.top <= (window.innerHeight || document.documentElement.clientHeight) * 0.85 &&
+                    rect.bottom >= 0
+                );
+            }
+            
+            // Elements to animate
+            const sectionTitle = document.querySelector('.section-title');
+            const featureItems = document.querySelectorAll('.feature-item');
+            const featuresImage = document.querySelector('.features-image');
+            
+            // Function to handle scroll animation
+            function animateOnScroll() {
+                // Animate title
+                if (isInViewport(sectionTitle) && !sectionTitle.classList.contains('active')) {
+                    sectionTitle.classList.add('active');
+                }
+                
+                // Animate features image
+                if (isInViewport(featuresImage) && !featuresImage.classList.contains('active')) {
+                    featuresImage.classList.add('active');
+                }
+                
+                // Animate feature items with delay
+                featureItems.forEach((item, index) => {
+                    if (isInViewport(item) && !item.classList.contains('active')) {
+                        // Add delay for cascade effect
+                        setTimeout(() => {
+                            item.classList.add('active');
+                        }, 150 * index);
+                    }
+                });
+            }
+            
+            // Run on page load
+            animateOnScroll();
+            
+            // Listen for scroll events
+            window.addEventListener('scroll', animateOnScroll);
+            
+            // For smoother animations on mobile
+            window.addEventListener('touchmove', animateOnScroll);
+            
+            // Re-check animations on window resize
+            window.addEventListener('resize', animateOnScroll);
+        });
