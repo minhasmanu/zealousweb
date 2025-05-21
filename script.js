@@ -196,3 +196,97 @@ document.addEventListener('DOMContentLoaded', () => {
             // Re-check animations on window resize
             window.addEventListener('resize', animateOnScroll);
         });
+        // Animation for results cards
+document.addEventListener('DOMContentLoaded', function() {
+    // Animate result cards on scroll
+    const resultCards = document.querySelectorAll('.result-card');
+    
+    // Function to check if element is in viewport
+    function isInViewport(element) {
+        const rect = element.getBoundingClientRect();
+        return (
+            rect.top <= (window.innerHeight || document.documentElement.clientHeight) &&
+            rect.bottom >= 0
+        );
+    }
+    
+    // Function to add animation to visible elements
+    function animateVisibleElements() {
+        resultCards.forEach(card => {
+            if (isInViewport(card)) {
+                // Get the delay attribute or default to 0
+                const delay = card.getAttribute('data-aos-delay') || 0;
+                
+                // Add animation with appropriate delay
+                setTimeout(() => {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, delay);
+            }
+        });
+    }
+    
+    // Initial check when page loads
+    animateVisibleElements();
+    
+    // Check again when user scrolls
+    window.addEventListener('scroll', animateVisibleElements);
+    
+    // Hover effect enhancements for result cards
+    resultCards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            const studentImage = this.querySelector('.student-image');
+            if (studentImage) {
+                studentImage.style.borderColor = '#ff6b6b';
+            }
+        });
+        
+        card.addEventListener('mouseleave', function() {
+            const studentImage = this.querySelector('.student-image');
+            if (studentImage) {
+                studentImage.style.borderColor = '#f0f0f0';
+            }
+        });
+    });
+    
+    // Optional: Add counter animation for scores if needed
+    function animateScores() {
+        const scores = document.querySelectorAll('.student-score');
+        scores.forEach(score => {
+            // For numeric scores with format like "704/720"
+            if (score.textContent.includes('/')) {
+                const scoreParts = score.textContent.split('/');
+                const targetScore = parseInt(scoreParts[0]);
+                const maxScore = scoreParts[1];
+                
+                // Only animate numbers above a certain threshold
+                if (targetScore > 600) {
+                    let currentScore = 600;
+                    const animationDuration = 1500; // 1.5 seconds
+                    const interval = animationDuration / (targetScore - currentScore);
+                    
+                    const counter = setInterval(() => {
+                        currentScore += 1;
+                        score.textContent = `${currentScore}/${maxScore}`;
+                        
+                        if (currentScore >= targetScore) {
+                            clearInterval(counter);
+                        }
+                    }, interval);
+                }
+            }
+        });
+    }
+    
+    // Run score animations when the NEET/JEE section becomes visible
+    const neetJeeSection = document.querySelector('.neet-jee');
+    if (neetJeeSection) {
+        window.addEventListener('scroll', function() {
+            if (isInViewport(neetJeeSection)) {
+                animateScores();
+                // Remove event listener to prevent repeated animations
+                window.removeEventListener('scroll', this);
+            }
+        });
+    }
+});
