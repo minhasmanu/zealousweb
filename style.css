@@ -929,6 +929,7 @@ nav {
 .features-image img {
   max-width: 100%;
   height: auto;
+  margin-right: 50px;
 }
 
 /* Feature Items */
