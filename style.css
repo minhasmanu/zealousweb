@@ -932,45 +932,6 @@ nav {
 }
 
 /* Feature Items */
-.features-section {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 40px 20px;
-  font-family: 'Segoe UI', Arial, sans-serif;
-}
-
-.section-title2 {
-  text-align: center;
-  color: #2b3a55;
-  font-size: 2.8rem;
-  margin-bottom: 50px;
-  font-weight: 700;
-}
-
-/* Content Layout */
-.features-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 30px;
-}
-
-.features-list {
-  flex: 1;
-  max-width: 550px;
-}
-
-.features-image {
-  flex: 1;
-  text-align: right;
-}
-
-.features-image img {
-  max-width: 100%;
-  height: auto;
-}
-
-/* Feature Items */
 .feature-item {
   display: flex;
   align-items: center;
@@ -994,7 +955,7 @@ nav {
   justify-content: center;
   width: 40px;
   height: 40px;
-  background-color: #d63031;
+  background-color: #F56B69;
   color: white;
   border-radius: 50%;
   font-weight: bold;
@@ -1002,6 +963,7 @@ nav {
   flex-shrink: 0;
   position: relative;
   z-index: 2;
+  font-size: 1rem;
 }
 
 .feature-title {
@@ -1026,7 +988,18 @@ nav {
   font-weight: 700;
 }
 
-/* Responsive Design */
+/* Improved Responsive Design */
+@media (max-width: 992px) {
+  .section-title2 {
+    font-size: 2.2rem;
+    margin-bottom: 40px;
+  }
+  
+  .feature-title {
+    font-size: 1.2rem;
+  }
+}
+
 @media (max-width: 768px) {
   .features-content {
     flex-direction: column-reverse;
@@ -1035,16 +1008,319 @@ nav {
   .features-image {
     order: -1;
     margin-bottom: 30px;
-    margin-right: 50px;
     text-align: center;
+    max-width: 80%;
   }
   
   .section-title2 {
-    font-size: 2rem;
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+  }
+  
+  .feature-title {
+    font-size: 1.1rem;
   }
   
   .feature-item:not(:last-child)::after {
-    height: 50px;
-    top: 40px;
+    height: 40px;
   }
+  
+  .features-list {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .features-section {
+    padding: 30px 15px;
+  }
+  
+  .section-title2 {
+    font-size: 1.5rem;
+    margin-bottom: 25px;
+  }
+  
+  .feature-title {
+    font-size: 1rem;
+  }
+  
+  .feature-number {
+    width: 32px;
+    height: 32px;
+    font-size: 0.9rem;
+  }
+  
+  .feature-item {
+    margin-bottom: 20px;
+  }
+  
+  .feature-item:not(:last-child)::after {
+    height: 35px;
+    top: 35px;
+  }
+  
+  .features-image {
+    max-width: 100%;
+  }
+}
+
+/* Results Section Styles */
+.results-section {
+    padding: 50px 0;
+    overflow: hidden;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.results-title {
+    font-size: 2rem;
+    color: #333;
+    font-weight: 700;
+    position: relative;
+    display: inline-block;
+    margin-bottom: 15px;
+}
+
+.grad-cap {
+    margin-right: 8px;
+    display: inline-block;
+    animation: bobUpDown 2s ease-in-out infinite;
+}
+
+.category-title {
+    font-size: 1.5rem;
+    color: #ff6b6b;
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: 600;
+    position: relative;
+}
+
+.category-title::after {
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 3px;
+    background-color: #ff6b6b;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.results-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    margin-bottom: 40px;
+    padding: 0 15px;
+}
+
+.competitive-grid {
+    grid-template-columns: repeat(6, 1fr);
+}
+
+.result-card {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    padding: 15px 10px;
+    text-align: center;
+    transition: all 0.3s ease;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s forwards;
+}
+
+.result-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.student-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin: 0 auto 12px;
+    overflow: hidden;
+    border: 3px solid #f0f0f0;
+    position: relative;
+}
+
+.student-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.result-card:hover .student-photo {
+    transform: scale(1.1);
+}
+
+.student-name {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 3px;
+    color: #333;
+}
+
+.student-score {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #ff6b6b;
+    margin-bottom: 3px;
+}
+
+.student-stream {
+    font-size: 0.8rem;
+    color: #666;
+}
+
+.neet-jee {
+    background-color: #ffebeb;
+    padding: 25px 15px;
+    border-radius: 12px;
+    margin-top: 20px;
+}
+
+.competitive-card {
+    background-color: white;
+    padding: 12px 8px;
+}
+
+.competitive-card .student-image {
+    width: 80px;
+    height: 80px;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes bobUpDown {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 1200px) {
+    .competitive-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .results-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+    
+    .competitive-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .student-image {
+        width: 90px;
+        height: 90px;
+    }
+    
+    .competitive-card .student-image {
+        width: 70px;
+        height: 70px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .results-title {
+        font-size: 1.8rem;
+    }
+    
+    .category-title {
+        font-size: 1.3rem;
+    }
+    
+    .competitive-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .results-section {
+        padding: 30px 0;
+    }
+    
+    .results-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+    
+    .competitive-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .result-card {
+        padding: 10px 5px;
+    }
+    
+    .student-image {
+        width: 70px;
+        height: 70px;
+        border-width: 2px;
+        margin-bottom: 8px;
+    }
+    
+    .competitive-card .student-image {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .student-name {
+        font-size: 0.85rem;
+        margin-bottom: 2px;
+    }
+    
+    .student-score {
+        font-size: 0.8rem;
+        margin-bottom: 2px;
+    }
+    
+    .student-stream {
+        font-size: 0.7rem;
+    }
+}
+
+@media screen and (max-width: 380px) {
+    .result-card {
+        padding: 8px 5px;
+    }
+    
+    .student-image {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .competitive-card .student-image {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .student-name {
+        font-size: 0.75rem;
+    }
 }
