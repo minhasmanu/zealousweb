@@ -10,17 +10,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
     
-    // Add hover animation to the circle
-    const heroImage = document.querySelector('.circle-bg');
-    if (heroImage) {
-        heroImage.addEventListener('mouseenter', () => {
-            heroImage.style.animation = 'pulse 2s infinite';
-        });
-        
-        heroImage.addEventListener('mouseleave', () => {
-            heroImage.style.animation = '';
-        });
-    }
     
     // Add click animations to buttons
     const buttons = document.querySelectorAll('.contact-btn, .know-more-btn, .option');
@@ -480,3 +469,18 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+
+
+
+    // Splash screen hide after 3 seconds
+    const splashScreen = document.getElementById('splash-screen');
+    if (splashScreen) {
+        setTimeout(() => {
+            splashScreen.style.opacity = '0';
+            splashScreen.style.transition = 'opacity 0.5s ease';
+            setTimeout(() => {
+                splashScreen.style.display = 'none';
+            }, 500);
+        }, 3000);
+    }

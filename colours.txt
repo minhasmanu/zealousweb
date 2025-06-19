@@ -1,0 +1,10 @@
+#2e3b4fff logoclour
+#41536F   mono
+#ffffff
+#000000
+#312E4F analo
+#2E4C4F analo
+
+
+#2e3b4fff logoclour
+    background: linear-gradient(135deg, #4700bfff, #aa62daff);
